@@ -45,6 +45,7 @@ Advanced Camera Card: https://github.com/dermotduffy/advanced-camera-card
 6.  Search for moonraker and install it (following the instructions for the addon).  _NOTE: Your printer does NOT have to be in local LAN mode, it will work either way_
 7. Once Moonraker is installed, you should see:
 ![](./Moonraker%20Integration.png)
+
 Click on the device it should show all of the Klipper integration settings:
 ![](Moonraker%20Settings.png)
 
@@ -55,7 +56,7 @@ Click on the device it should show all of the Klipper integration settings:
 
 ### Camera Feed ###
 
-If you did not choose the optioal firmware update, you can choose the "Case" feed for the camera feed
+If you did not choose the optional firmware update, you can choose the "Case" feed for the camera feed
 
 If you DID choose to install the optional firmware, your camera feed will be in the "advanced camera card"
 

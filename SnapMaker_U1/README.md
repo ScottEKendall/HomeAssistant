@@ -18,7 +18,7 @@ mushroom plugin: <https://github.com/piitaya/lovelace-mushroom>
 
 ### Optional ###
 
-    Warning: Installing custom firmware may void warranty and could potentially damage your device. Use at your own risk.
+> Warning: Installing custom firmware may void warranty and could potentially damage your device. Use at your own risk.
     
 If you want to mod your firmware for high resolution RTSP camera feeds you will need the following:
 
@@ -34,10 +34,48 @@ Advanced Camera Card: https://github.com/dermotduffy/advanced-camera-card
 3.  Go into HACS and search & install the following:
 
     a.  "Moonraker"
+
     b.  "Mushroom"
+
     c.  (Optional). "Advanced camera card"
+
     
-4.  You will probably have to restart HA after you install the addons
+4.  You will probably have to restart HA after you install these addons
 5.  Go into Settings > Devices & Services and click on "Add integration in the lower right corner"
 6.  Search for moonraker and install it (following the instructions for the addon).  _NOTE: Your printer does NOT have to be in local LAN mode, it will work either way_
-7.  
+7. Once Moonraker is installed, you should see:
+![](./Moonraker%20Integration.png)
+Click on the device it should show all of the Klipper integration settings:
+![](Moonraker%20Settings.png)
+
+### Creating a dashboard ###
+
+1.  From the moonraker plugin, scroll to the very bottom of the settings card and click on "Add to dashboard" and choose what type of card you want the information to be displayed in.
+2. After the card is added with all of the info, you can edit the dashboard and remove/edit items that you don't want to use
+
+### Camera Feed ###
+
+If you did not choose the optioal firmware update, you can choose the "Case" feed for the camera feed
+
+If you DID choose to install the optional firmware, your camera feed will be in the "advanced camera card"
+
+My YAML code is as follows to setup my card:
+
+```
+type: custom:advanced-camera-card
+cameras:
+  - camera_entity: camera.robinson3d_case
+profiles:
+  - casting
+view:
+  default: live
+menu:
+  style: hover
+  position: left
+  alignment: left
+status_bar:
+  style: hover-card
+dimensions:
+  aspect_ratio_mode: dynamic
+  height: "500"
+```

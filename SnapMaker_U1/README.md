@@ -37,11 +37,11 @@ Advanced Camera Card: https://github.com/dermotduffy/advanced-camera-card
 
     b.  "Mushroom"
 
-    c.  (Optional). "Advanced camera card"
+    c.  (Optional) "Advanced camera card"
 
     
 4.  You will probably have to restart HA after you install these addons
-5.  Go into Settings > Devices & Services and click on "Add integration in the lower right corner"
+5.  Go into Settings > Devices & Services and click on "Add integration" in the lower right corner
 6.  Search for moonraker and install it (following the instructions for the addon).  _NOTE: Your printer does NOT have to be in local LAN mode, it will work either way_
 7. Once Moonraker is installed, you should see:
 ![](./Moonraker%20Integration.png)
@@ -80,3 +80,10 @@ dimensions:
   aspect_ratio_mode: dynamic
   height: "500"
 ```
+
+If you really want to geek out, I have uploaded my entire YAML script for the 3d Printer setup that I showed in the Desktop image.
+
+I am still looking on how to retrieve the filament info from Klipper, if anyone knows how I can do that please let me know!
+
+Have fun playing with this!
+

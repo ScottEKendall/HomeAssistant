@@ -1,0 +1,264 @@
+
+  - type: sections
+    max_columns: 3
+    title: Printer Playground
+    path: printer-playground
+    icon: mdi:printer-3d
+    theme: ios-dark-mode-dark-blue
+    sections:
+      - type: grid
+        cards:
+          - type: custom:advanced-camera-card
+            cameras:
+              - camera_entity: camera.robinson3d_case
+            profiles:
+              - casting
+            view:
+              default: live
+            menu:
+              style: hover
+              position: left
+              alignment: left
+            status_bar:
+              style: hover-card
+            dimensions:
+              aspect_ratio_mode: dynamic
+              height: '500'
+          - type: vertical-stack
+            cards:
+              - type: entities
+                entities:
+                  - entity: sensor.robinson3d_current_print_state
+                    name: Status
+                  - entity: sensor.robinson3d_printer_message
+                    name: Notifications
+                  - entity: sensor.robinson3d_print_duration
+                    name:
+                      type: entity
+                  - entity: sensor.robinson3d_slicer_print_time_left_estimate
+                    name: Remaining Time
+                  - entity: sensor.robinson3d_print_projected_total_duration
+                    name: Total Print Time
+                  - entity: sensor.robinson3d_filament_used
+                    name: Print Weight
+            title: Print Details
+          - type: vertical-stack
+            cards:
+              - type: entities
+                entities:
+                  - entity: sensor.robinson3d_totals_print_time
+                    icon: mdi:checkbox-blank-circle-outline
+                    name:
+                      type: entity
+                  - entity: sensor.robinson3d_totals_filament_used
+                    name:
+                      type: entity
+                  - entity: sensor.robinson3d_totals_jobs
+                    name:
+                      type: entity
+                theme: Mushroom
+                show_header_toggle: false
+                state_color: true
+            title: Lifetime Usage
+      - type: grid
+        cards:
+          - type: custom:button-card
+            entity: button.robinson3d_pause_print
+            name: Pause
+            section_mode: true
+            grid_options:
+              rows: 2
+              columns: 4
+          - type: custom:button-card
+            entity: button.robinson3d_resume_print
+            name: Resume
+            section_mode: true
+            grid_options:
+              rows: 2
+              columns: 4
+          - type: custom:button-card
+            entity: button.robinson3d_cancel_print
+            name: Cancel
+            section_mode: true
+            grid_options:
+              rows: 2
+              columns: 4
+          - type: vertical-stack
+            cards:
+              - type: custom:mushroom-fan-card
+                name: Cooling Fan
+                icon_animation: true
+                fill_container: true
+                layout: horizontal
+                show_percentage_control: false
+                entity: sensor.robinson3d_cavity_fan
+                show_oscillate_control: false
+                show_direction_control: false
+                collapsible_controls: false
+              - type: custom:mushroom-fan-card
+                name: Power Fan
+                icon_animation: true
+                fill_container: true
+                layout: horizontal
+                show_percentage_control: false
+                entity: sensor.robinson3d_power_fan
+              - type: custom:mushroom-fan-card
+                name: Nozzle 1 Fan
+                icon_animation: true
+                fill_container: true
+                layout: horizontal
+                show_percentage_control: false
+                entity: sensor.robinson3d_e0_nozzle_fan
+              - type: custom:mushroom-fan-card
+                name: Nozzle 2 Fan
+                icon_animation: true
+                fill_container: false
+                layout: horizontal
+                show_percentage_control: false
+                entity: sensor.robinson3d_e1_nozzle_fan
+              - type: custom:mushroom-fan-card
+                name: Nozzle 3 Fan
+                icon_animation: true
+                fill_container: true
+                layout: horizontal
+                show_percentage_control: false
+                entity: sensor.robinson3d_e2_nozzle_fan
+              - type: custom:mushroom-fan-card
+                name: Nozzle 4 Fan
+                icon_animation: true
+                fill_container: true
+                layout: horizontal
+                show_percentage_control: false
+                entity: sensor.robinson3d_e3_nozzle_fan
+          - type: custom:mushroom-title-card
+            title: Enclosure Temperature(s)
+            alignment: center
+          - type: tile
+            entity: sensor.robinson3d_bed_temperature
+            name: Bed Temperature
+            show_entity_picture: false
+            hide_state: false
+            vertical: false
+            features_position: bottom
+          - type: tile
+            entity: sensor.robinson3d_cavity_temp
+            name: Cavity Temperature
+            show_entity_picture: false
+            hide_state: false
+            vertical: false
+            features_position: bottom
+          - type: custom:mushroom-title-card
+            title: Nozzle Temperature(s)
+            alignment: center
+          - type: tile
+            entity: sensor.robinson3d_extruder_temperature
+            name: Nozzle 1 Temperature
+            hide_state: false
+            vertical: false
+            features_position: bottom
+          - type: tile
+            entity: sensor.robinson3d_extruder1_temperature
+            name: Nozzle 2 Temperature
+            hide_state: false
+            vertical: false
+            features_position: bottom
+          - type: tile
+            entity: sensor.robinson3d_extruder2_temperature
+            name: Nozzle 3 Temperature
+            hide_state: false
+            vertical: false
+            features_position: bottom
+          - type: tile
+            entity: sensor.robinson3d_extruder3_temperature
+            name: Nozzle 4 Temperature
+            hide_state: false
+            vertical: false
+            features_position: bottom
+        column_span: 1
+      - type: grid
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: vertical-stack
+                cards:
+                  - type: custom:mushroom-entity-card
+                    name: Task
+                    icon: mdi:clipboard-text
+                    entity: sensor.robinson3d_filename
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:mushroom-entity-card
+                        name: Progress
+                        icon: mdi:progress-helper
+                        entity: sensor.robinson3d_progress
+                      - type: custom:mushroom-template-card
+                        primary: Layer
+                        icon_color: var(--rgb-state-entity)
+                        secondary: >-
+                          {{states('sensor.robinson3d_current_layer')}} /
+                          {{states('sensor.robinson3d_total_layer')}}
+                        icon: mdi:layers
+            title: Print Summary
+          - show_state: false
+            show_name: false
+            camera_view: auto
+            fit_mode: cover
+            type: picture-entity
+            image:
+              media_content_id: https://demo.home-assistant.io/stub_config/bedroom.png
+            grid_options:
+              columns: 12
+              rows: 6
+            theme: ios-dark-mode-dark-blue
+            name: ' '
+            entity: camera.robinson3d_thumbnail
+          - type: custom:layout-card
+            cards:
+              - type: custom:bar-card
+                entity: sensor.robinson3d_progress
+                name: Print Progress
+                height: 36px
+                severity: null
+                color: green
+                min: '0'
+                max: '100'
+                entity_row: true
+                positions:
+                  icon: 'off'
+                  indicator: 'off'
+                card_mod:
+                  style: |
+                    ha-card {
+                      padding: 11px;
+                      margin-left: 1px;
+                      --bar-card-border-radius: 12px;
+                    }
+                    bar-card-value {
+                      margin: 11px;
+                      font-size: 12px;
+                      font-weight: bolder;
+                    }
+                    bar-card-name {
+                      margin: 11px;
+                      font-size: 12px;
+                      font-weight: bolder;
+                    }
+                    bar-card-backgroundbar {
+                      opacity: 0.2;
+                      filter: brightness(1);
+                    }
+    cards: []
+    background:
+      opacity: 99
+      alignment: center
+      size: cover
+      repeat: repeat
+      attachment: fixed
+      image: /api/image/serve/6d204c1b1c72bf169592705c94d22529/original
+    header:
+      card:
+        type: markdown
+        text_only: true
+        content: |2
+            # SnapMaker - Robinson 3D
+  

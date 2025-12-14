@@ -81,6 +81,23 @@ dimensions:
   height: "500"
 ```
 
+### Automations ###
+
+if you want to have HA notify you upon printer status changes, you need to do these steps:
+
+1.  Go into Settings > Automation & Scenes
+2. Click on Create automation in the lower right corner
+3. Choose "Create new Automation" from the popup menu
+4. In the new automation choose Add trigger
+5. Click on Entity > State and look for the key "Current Print Status".  That is the key that changes when the printer starts, stops, pauses, etc
+
+Here is a sample of how mine is setup:
+
+![](Automation%20Start.png)
+
+
+### Geek Mode ###
+
 If you really want to geek out, I have uploaded my entire YAML script for the 3d Printer setup that I showed in the Desktop image.
 
 I am still looking on how to retrieve the filament info from Klipper, if anyone knows how I can do that please let me know!

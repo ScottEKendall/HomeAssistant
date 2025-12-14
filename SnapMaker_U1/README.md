@@ -2,7 +2,9 @@
 
 When I had my Bambu A1 Mini printer, someone had a Home Assistant plugin that showed all kinds of status information about my printer.  Since then, I have upgraded to the Snapmaker U1 printer and I was longing for a good HA plugin, that would give me (almost) the same information that my Bambu did.
 
-![](./Desktop%20–%20Home%20Assistant.pdf)
+![Desktop Screen](./Desktop%20–%20Home%20Assistant.png)
+
+![Mobile Screen](./iPhone%20View%20–%20Home%20Assistant.png)
 
 ## Required Items ##
 

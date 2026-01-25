@@ -14,6 +14,8 @@ HACS: https://www.hacs.xyz
 
 Moonraker HACS plugin: <https://github.com/marcolivierarsenault/moonraker-home-assistant>
 
+Spoolman HACS plugin: <https://github.com/Disane87/spoolman-homeassistant>
+
 mushroom plugin: <https://github.com/piitaya/lovelace-mushroom>
 
 ### Optional ###
@@ -27,6 +29,7 @@ Snapmaker Extended Firmware mod: https://github.com/paxx12/SnapmakerU1-Extended-
 Advanced Camera Card: https://github.com/dermotduffy/advanced-camera-card
 
 
+
 ### Installation Steps ###
 
 1.  Make sure HA is installed and up and running
@@ -37,11 +40,16 @@ Advanced Camera Card: https://github.com/dermotduffy/advanced-camera-card
 
     b.  "Mushroom"
 
-    c.  (Optional) "Advanced camera card"
+    c.  "Spoolman"
+
+    d.  (Optional) "Advanced camera card"
 
     
 4.  You will probably have to restart HA after you install these addons
 5.  Go into Settings > Devices & Services and click on "Add integration" in the lower right corner
+
+## Moonraker install ##
+
 6.  Search for moonraker and install it (following the instructions for the addon).  _NOTE: Your printer does NOT have to be in local LAN mode, it will work either way_
 7. Once Moonraker is installed, you should see:
 ![](./Moonraker%20Integration.png)
@@ -49,9 +57,23 @@ Advanced Camera Card: https://github.com/dermotduffy/advanced-camera-card
 Click on the device it should show all of the Klipper integration settings:
 ![](Moonraker%20Settings.png)
 
+## Spoolman Install ##
+
+8.  you should follow the instructions on how to setup Spoolman first...directions are here: <https://github.com/marcolivierarsenault/moonraker-home-assistant>
+
+9.  Search for spoolman in HACS and install it (following the instructions for the addon).  _NOTE: Your printer does NOT have to be in local LAN mode, it will work either way_
+10. Once Moonraker is installed, you should see:
+
+![](./Spoolman%20Integration.png)
+
+Click on the device it should show all of the Spoolman integration settings (one entry for each spool you have in your library):
+
+![](./Spoolman%20Settings.png)
+
+
 ### Creating a dashboard ###
 
-1.  From the moonraker plugin, scroll to the very bottom of the settings card and click on "Add to dashboard" and choose what type of card you want the information to be displayed in.
+1.  From the both the moonraker & spoolman plugin, scroll to the very bottom of the settings card and click on "Add to dashboard" and choose what type of card you want the information to be displayed in.
 2. After the card is added with all of the info, you can edit the dashboard and remove/edit items that you don't want to use
 
 ### Camera Feed ###
@@ -98,7 +120,7 @@ Here is a sample of how mine is setup:
 
 ### Geek Mode ###
 
-If you really want to geek out, I have uploaded my entire YAML script for the 3d Printer setup that I showed in the Desktop image.
+If you really want to geek out, I have uploaded my entire YAML script for the 3d Printer & spoolman setup that I showed in the Desktop image.
 
 I am still looking on how to retrieve the filament info from Klipper, if anyone knows how I can do that please let me know!
 
